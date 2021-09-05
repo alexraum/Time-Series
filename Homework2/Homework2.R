@@ -191,7 +191,7 @@ MAPE_hwesm <- mean(abs(error_hwesm) / abs(validation))
 
 
 # TODO: combine training and validation set, rerun the best ESM to update parameters, then calculate
-#       model accuracy on test data set
+#       the model accuracy on test data set
 
 # combine training and validation data set into a new training data set
 training_validation = subset(energy, end = length(energy)-5)
