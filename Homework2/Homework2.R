@@ -211,7 +211,7 @@ MAPE <- mean(abs(error) / abs(test))
 
 # TODO: create time plots of predicted values vs. actual values for validation data and test data
 
-# actual values vs. predicted values for validation data
+# actual values vs. predicted values for the validation data set
 autoplot(validation, size = 1.4) + 
   geom_line(aes(y = energy_hwesa_train$mean), color = "blue", size = 1.4) +
   ggtitle("Prediction Values vs. Observed Values for Validation Data") +
@@ -219,7 +219,7 @@ autoplot(validation, size = 1.4) +
   ylab("Energy") +
   theme(plot.title = element_text(hjust = 0.5))
 
-# actual values vs. predicted values for test data
+# actual values vs. predicted values for the test data set
 autoplot(test, size = 1.4) + 
     geom_line(aes(y = energy_hwes_tr_val$mean), color = "red", size = 1.4) +
     ggtitle("Prediction Values vs. Observed Values for Test Data") +
