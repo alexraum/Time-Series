@@ -26,7 +26,7 @@ rangeMonths <- seq.Date(min(months), max(months), by = "month")
 missing <- !(rangeMonths %in% months)
 # use indexing to obtain these months from the complete interval
 missingMonths <- rangeMonths[missing]
-# determine the number of missing months
+# determine the total number of missing months
 length(missingMonths)
 
 
