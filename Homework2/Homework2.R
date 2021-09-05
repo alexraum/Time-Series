@@ -15,7 +15,7 @@ energyData <- read.csv("UK.csv")
 
 ## Part 1
 
-# TODO: determine the number of months missing
+# TODO: determine the total number of months missing
 
 # convert the Date column to date object and store as a variable
 months <- as.Date(as.yearmon(energyData$Date, "%b-%y"))
