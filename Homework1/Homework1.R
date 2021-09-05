@@ -1,7 +1,7 @@
 ### Homework 1: Time Series
 
 # set the working directory
-setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Homework1")
+setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Time Series/Homework1")
 # import libraries
 library(lubridate)
 library(dplyr)
@@ -71,13 +71,10 @@ ozoneConcMonthly <- ozone %>%
   group_by(Year = Year(Dates), Month = Month(Dates)) %>%
   summarize(Avg = mean(Daily.Max.8.hour.Ozone.Concentration))
 
-# plot the time series data
+# plot the STL time series data
 maxOzone <- ts(ozoneConcMonthly$Avg, start = c(2014, 1), frequency = 12)
 decomp_stl <- stl(maxOzone, s.window = 7)
 plot(decomp_stl)
 
-forecast::autoplot(maxOzone, size = 1.4) +
-  ggtitle("Mean Monthly Max 8 Hour Ozone Concentration Over Time") +
-  theme(plot.title = element_text(hjust = 0.5)) +
-  xlab("Time (Months)") +
-  ylab("Concentration")
+# plot the time series data
+forecast::autoplot(maxOzone)
