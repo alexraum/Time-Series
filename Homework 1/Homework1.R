@@ -1,7 +1,7 @@
 ### Homework 1: Time Series
 
 # set the working directory
-setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Time Series/Homework1")
+setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Time Series/Homework 1")
 # import libraries
 library(lubridate)
 library(dplyr)

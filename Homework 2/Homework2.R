@@ -1,7 +1,7 @@
 ### Homework 2: Time Series
 
 # set the working directory
-setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Time Series/Homework2")
+setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Time Series/Homework 2")
 
 # import libraries
 library(zoo)
