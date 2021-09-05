@@ -203,7 +203,7 @@ energy_hwes_tr_val <- hw(training_validation, seasonal = "additive", h = 5) # fo
 error <- test - energy_hwes_tr_val$mean
 MAPE <- mean(abs(error) / abs(test))
 
-# conclude that MAPE is 0.125351
+# conclude that the MAPE is 0.125351
 
 
 
