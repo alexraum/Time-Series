@@ -15,7 +15,7 @@ energyData <- read.csv("UK.csv")
 
 ## Part 1
 
-# TODO: determine the total number of months missing
+# Determine the total number of months missing
 
 # convert the Date column to date object and store as a variable
 months <- as.Date(as.yearmon(energyData$Date, "%b-%y"))
@@ -56,7 +56,7 @@ test <- subset(energy, start = length(energy)-4)
 
 ## Part 2
 
-# TODO: create a monthly exponential smoothing model withholding the last 17 months
+# Create a monthly exponential smoothing model withholding the last 17 months
 
 # SIMPLE ESM (can only forecast one time step ahead)
 
@@ -107,8 +107,8 @@ autoplot(energy_hwes) +
 
 ## Part 3
 
-# TODO: create visualization of actual electricity values overlaid with the
-#     : trend/cycle component for the training set
+# Create visualization of actual electricity values overlaid with the
+# trend/cycle component for the training set
 
 # decompose the training set and view the components
 decomp_stl <- stl(training, s.window = 7)
@@ -119,8 +119,8 @@ autoplot(training) +
   geom_line(aes(y = decomp_stl$time.series[,2]), color = "blue")
 
 
-# TODO: create visualization of actual electricity values overlaid with the
-#     : seasonally adjusted electricity values for the training data set
+# create visualization of actual electricity values overlaid with the
+# seasonally adjusted electricity values for the training data set
 
 # create seasonally adjusted data by subtracting seasonality component from data
 seas_adj <- training - decomp_stl$time.series[,1]
@@ -133,8 +133,8 @@ autoplot(training) +
 
 ## Part 4
 
-# TODO: use validation data set to determine which model performs best (using MAPE)
-#       (we get an initial idea of what model this may be by examining training data as above)
+# Use validation data set to determine which model performs best (using MAPE)
+# (we get an initial idea of what model this may be by examining training data as above)
 
 # check each model to determine which performs best on validation data
 
@@ -190,8 +190,8 @@ MAPE_hwesm <- mean(abs(error_hwesm) / abs(validation))
 # thus, we determine that the Holt/Winters additive model performs the best on the validation data 
 
 
-# TODO: combine training and validation set, rerun the best ESM to update parameters, then calculate
-#       the model accuracy on test data set
+# combine training and validation set, rerun the best ESM to update parameters, then calculate
+# the model accuracy on test data set
 
 # combine training and validation data set into a new training data set
 training_validation = subset(energy, end = length(energy)-5)
@@ -209,7 +209,7 @@ MAPE <- mean(abs(error) / abs(test))
 
 ## Part 5
 
-# TODO: create time plots of predicted values vs. actual values for validation data and test data
+# Create time plots of predicted values vs. actual values for validation data and test data
 
 # actual values vs. predicted values for the validation data set
 autoplot(validation, size = 1.4) + 
