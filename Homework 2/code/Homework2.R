@@ -1,7 +1,7 @@
 ### Homework 2: Time Series
 
 # set the working directory
-setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Time Series/Homework 2")
+setwd("C:/Users/alexr/Documents/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Time Series/Homework 2/data")
 
 # import libraries
 library(zoo)
@@ -30,13 +30,18 @@ missingMonths <- rangeMonths[missing]
 length(missingMonths)
 
 
-# TODO: visualize and split the data
+# Visualize and split the data
 
 # create a time series object
 energy <- ts(energyData$Hydro_energy, start = c(2006, 1), frequency = 12)
 
 # visualize the entire data set
-autoplot(energy)
+autoplot(energy, size = 1.0) +
+  ggtitle("Generated Energy vs. Time (Training Data)") +
+  xlab("Time (Months)") +
+  ylab("Energy (GWh)") +
+  scale_y_continuous(labels = comma) +
+  theme(plot.title = element_text(hjust = 0.5))
 
 # all but last 17 months used for training data
 training = subset(energy, end = length(energy)-17)
@@ -115,8 +120,13 @@ decomp_stl <- stl(training, s.window = 7)
 autoplot(decomp_stl)
 
 # overlay actual values and trend
-autoplot(training) + 
-  geom_line(aes(y = decomp_stl$time.series[,2]), color = "blue")
+autoplot(training, size = 1.0) + 
+  geom_line(aes(y = decomp_stl$time.series[,2]), color = "blue", size = 1.0) +
+  ggtitle("Observed Energy Values and Trend Component vs. Time") +
+  xlab("Time (Months)") +
+  ylab("Energy (GWh)") +
+  scale_y_continuous(labels = comma) +
+  theme(plot.title = element_text(hjust = 0.5))
 
 
 # create visualization of actual electricity values overlaid with the
@@ -126,8 +136,14 @@ autoplot(training) +
 seas_adj <- training - decomp_stl$time.series[,1]
 
 # overlay actual values and seasonally adjusted values
-autoplot(training) +
-  geom_line(aes(y = seas_adj), color = "blue")
+autoplot(training, size = 1.0) +
+  geom_line(aes(y = seas_adj), color = "red", size = 1.0) +
+  ggtitle("Observed Energy Values and Seasonally Adjusted Values vs. Time") +
+  xlab("Time (Months)") +
+  ylab("Energy (GWh)") +
+  scale_y_continuous(labels = comma) +
+  theme(plot.title = element_text(hjust = 0.5))
+
 
 
 
