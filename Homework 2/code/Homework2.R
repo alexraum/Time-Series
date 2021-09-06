@@ -38,10 +38,11 @@ energy <- ts(energyData$Hydro_energy, start = c(2006, 1), frequency = 12)
 
 # visualize the entire data set
 autoplot(energy, size = 1.0) +
-  ggtitle("Generated Energy vs. Time (Training Data)") +
+  ggtitle("Observed Energy vs. Time (Training Data)") +
   xlab("Time (Months)") +
   ylab("Energy (GWh)") +
-  scale_y_continuous(labels = comma) +
+  #scale_y_continuous(labels = comma) +
+  theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))
 
 # all but last 17 months used for training data
@@ -127,7 +128,8 @@ autoplot(training, size = 1.0) +
   ggtitle("Observed Energy Values and Trend Component vs. Time") +
   xlab("Time (Months)") +
   ylab("Energy (GWh)") +
-  scale_y_continuous(labels = comma) +
+  #scale_y_continuous(labels = comma) +
+  theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))
 
 
@@ -144,7 +146,8 @@ autoplot(training, size = 1.0) +
   ggtitle("Observed Energy Values and Seasonally Adjusted Values vs. Time") +
   xlab("Time (Months)") +
   ylab("Energy (GWh)") +
-  scale_y_continuous(labels = comma) +
+  #scale_y_continuous(labels = comma) +
+  theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))
 
 
@@ -231,7 +234,7 @@ MAPE <- mean(abs(error) / abs(test))
 # Create time plots of predicted values vs. actual values for validation data and test data
 
 # actual values vs. predicted values for the validation data set
-autoplot(validation, size = 1.4) + 
+autoplot(validation, size = 1.0) + 
   geom_line(aes(y = energy_hwesa_train$mean), color = "blue", size = 1.4) +
   ggtitle("Forecast vs. Observed Values for Validation Data") +
   xlab("Time (Months)") +
