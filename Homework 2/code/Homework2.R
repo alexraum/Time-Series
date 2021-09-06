@@ -245,7 +245,7 @@ autoplot(energy_hwesa_train, size = 1.0) +
   ggtitle("Forecast vs. Observed Values for Validation Data") +
   xlab("Time (Months)") +
   ylab("Energy (GHz)") +
-  geom_vline(xintercept = 2020.9, color = "black", linetype = "dashed") +
+  geom_vline(xintercept = 2019.9, color = "black", linetype = "dashed") +
   theme(plot.title = element_text(hjust = 0.5))
 
 # actual values vs. predicted values for the test data set (training and validation data included)
