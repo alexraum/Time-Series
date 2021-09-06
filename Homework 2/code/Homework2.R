@@ -35,6 +35,7 @@ length(missingMonths)
 # create a time series object
 energy <- ts(energyData$Hydro_energy, start = c(2006, 1), frequency = 12)
 
+
 # visualize the entire data set
 autoplot(energy, size = 1.0) +
   ggtitle("Generated Energy vs. Time (Training Data)") +
@@ -49,6 +50,7 @@ training = subset(energy, end = length(energy)-17)
 validation <- subset(energy, start = length(energy)-16, end = length(energy)-5)
 # last 5 observations form test data
 test <- subset(energy, start = length(energy)-4)
+
 
 # variation around trend appears to remain roughly constant, implying an additive model
 
@@ -134,6 +136,7 @@ autoplot(training, size = 1.0) +
 
 # create seasonally adjusted data by subtracting seasonality component from data
 seas_adj <- training - decomp_stl$time.series[,1]
+
 
 # overlay actual values and seasonally adjusted values
 autoplot(training, size = 1.0) +
