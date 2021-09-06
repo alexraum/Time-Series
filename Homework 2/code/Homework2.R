@@ -152,7 +152,6 @@ autoplot(training, size = 1.0) +
 
 
 
-
 ## Part 4
 
 # Use validation data set to determine which model performs best (using MAPE)
@@ -252,7 +251,7 @@ autoplot(energy_hwesa_train, size = 1.0) +
   theme(plot.title = element_text(hjust = 0.5))
 
 # actual values vs. predicted values for the test data set (training and validation data included)
-autoplot(test, size = 1.4) + 
+autoplot(test, size = 1.0) + 
     geom_line(aes(y = energy_hwes_tr_val$mean), color = "red", size = 1.4) +
     ggtitle("Forecast vs. Observed Values for Test Data") +
     xlab("Time (Months)") +
