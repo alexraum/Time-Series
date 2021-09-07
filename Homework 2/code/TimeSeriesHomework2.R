@@ -65,7 +65,7 @@ test <- subset(energy, start = length(energy)-4)
 
 # Create a monthly exponential smoothing model withholding the last 17 months
 
-# SIMPLE ESM (can only forecast one time step ahead)
+# SIMPLE ESM
 
 # simple exponential smoothing model
 energy_ses <- ses(training, h = 24)
@@ -73,10 +73,10 @@ summary(energy_ses)
 
 # plot the SES model on the energy data
 autoplot(energy_ses) +
-  autolayer(fitted(energy_ses), series="Fitted") # what do we pass as arguments to autolayer and autoplot???
+  autolayer(fitted(energy_ses), series="Fitted")
 
 
-# HOLT ESM (incorporates trend and can forecast several time steps ahead, but still best to only forecast one step)
+# HOLT ESM
 
 # linear/Holt exponential smoothing model
 energy_les <- holt(training, initial = "optimal", h = 24)
@@ -87,7 +87,7 @@ autoplot(energy_les) +
   autolayer(fitted(energy_les), series = "Fitted")
 
 
-# DAMPED TREND (forecasts further out are damped)
+# DAMPED TREND
 
 # damped trend exponential smoothing model
 energy_ldes <- holt(training, initial = "optimal", h = 24, damped = T)
@@ -98,7 +98,7 @@ autoplot(energy_ldes) +
   autolayer(fitted(energy_ldes), series = "Fitted")
 
 
-# HOLT/WINTERS (can incorporate seasonality, use to forecast one step ahead, then rerun with new prediction value)
+# HOLT/WINTERS
 
 # Holt/Winters exponential smoothing model (additive seasonality)
 energy_hwes <- hw(training, seasonal = "additive")
