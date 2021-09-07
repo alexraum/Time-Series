@@ -241,13 +241,15 @@ autoplot(validation, size = 1.0) +
   theme(plot.title = element_text(hjust = 0.5))
 
 # actual values vs. predicted values for the validation data set (training data included)
-autoplot(energy_hwesa_train, size = 1.0) +
+autoplot(energy_hwesa_train, PI = F, size = 1.0) +
   autolayer(fitted(energy_hwesa_train), series = "Fitted", size = 1.0) +
   autolayer(validation, color = "green", size = 1.0) +
   ggtitle("Forecast vs. Observed Values for Validation Data") +
   xlab("Time (Months)") +
   ylab("Energy (GHz)") +
-  geom_vline(xintercept = 2019.9, color = "black", linetype = "dashed") +
+  xlim(2015, NA) +
+  geom_vline(xintercept = 2019.877, size = 1.0, color = "black", linetype = "dashed") +
+  theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))
 
 # actual values vs. predicted values for the test data set (training and validation data included)
@@ -258,12 +260,14 @@ autoplot(test, size = 1.0) +
     ylab("Energy") +
     theme(plot.title = element_text(hjust = 0.5))
 
-autoplot(energy_hwes_tr_val, size = 1.0) +
+autoplot(energy_hwes_tr_val, PI = F, size = 1.0) +
   autolayer(fitted(energy_hwes_tr_val), series = "Fitted", size = 1.0) +
   autolayer(test, color = "green", size = 1.0) +
   ggtitle("Forecast vs. Observed Values for Test Data") +
   xlab("Time (Months)") +
   ylab("Energy (GHz)") +
-  geom_vline(xintercept = 2020.9, color = "black", linetype = "dashed") +
+  xlim(2015, NA) +
+  geom_vline(xintercept = 2020.877, size = 1.0, color = "black", linetype = "dashed") +
+  theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))
 
