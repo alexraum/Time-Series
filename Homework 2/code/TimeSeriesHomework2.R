@@ -140,7 +140,7 @@ seas_adj <- training - decomp_stl$time.series[,1]
 
 # overlay actual values and seasonally adjusted values
 autoplot(training, size = 1.0) +
-  geom_line(aes(y = seas_adj), color = "red", size = 1.0) +
+  geom_line(aes(y = seas_adj), color = "blue", size = 1.0) +
   ggtitle("Observed Energy Values and Seasonally Adjusted Values vs. Time") +
   xlab("Time (Months)") +
   ylab("Energy (GWh)") +
@@ -231,8 +231,8 @@ MAPE <- mean(abs(error) / abs(test))
 
 # actual values vs. predicted values for the validation data set (training data included)
 autoplot(energy_hwesa_train, PI = F, size = 1.0) +
-  autolayer(fitted(energy_hwesa_train), series = "Fitted", size = 1.0) +
-  autolayer(validation, color = "green", size = 1.0) +
+  autolayer(fitted(energy_hwesa_train), series = "Fitted") +
+  autolayer(validation, color = "black") +
   ggtitle("Forecast vs. Observed Values for Validation Data") +
   xlab("Time (Months)") +
   ylab("Energy (GWh)") +
