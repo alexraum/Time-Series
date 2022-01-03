@@ -1,4 +1,4 @@
-### Homework 3: Time Series
+### Cheking for Stationarity
 
 # set the working directory
 setwd("C:/Users/alexr/OneDrive/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/DataR")
@@ -12,7 +12,7 @@ library(forecast)
 energyData = read.csv("UK.csv")
 
 
-## Problem 1: Check the stationarity of the monthly generation of hydro-electricity
+## Part 1: Check the stationarity of the monthly generation of hydro-electricity
 
 # first, best to visualize the data
 energy = ts(energyData$Hydro_energy, start = c(2006, 1), frequency = 12)
@@ -53,7 +53,7 @@ aTSA::adf.test(seas_adj)
 # is stationary, differencing is not required.
 
 
-## Problem 2: Provide information on what information you are seeing in the 
+## Part 2: Provide information on what information you are seeing in the 
 ##            autocorrelation and partial autocorrelation plots
 
 # plot autocorrelation between observations for up to ten lags 
@@ -84,7 +84,7 @@ ggplot(corr_data, aes(x=factor(index), y=acf)) +
 # the data is not a random walk. This is in agreement with our result for Problem 1.
 
 
-## Problem 3: Using the stationary time series, does the series exhibit white noise?
+## Part 3: Using the stationary time series, does the series exhibit white noise?
 
 # we use the Ljung-Box test to determine if the data is white noise, since the data
 # is not seasonal we will go back 10 lags (based on the first 2 problems, we expect

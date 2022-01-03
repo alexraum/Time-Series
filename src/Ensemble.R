@@ -1,4 +1,4 @@
-### Time Series: Final Project
+### Multiple Models
 
 # import libraries
 library(zoo)
@@ -27,6 +27,7 @@ length(missingMonths)
 
 df <- data %>%
   select(Date)
+
 
 ## Part 1: Split the data
 

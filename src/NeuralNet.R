@@ -1,4 +1,4 @@
-### Homework 2: Time Series 2 (Alex Raum)
+### Prophet and Neural Network Models
 
 # import libraries
 library(zoo)
@@ -87,7 +87,7 @@ print(prophet_mae)
 print(prophet_mape)
 
 
-## Part 2: Build a neural network model
+## Part 3: Build a neural network model
 
 # use an autoarima procedure to determine the number of lags, take seasonal differences on data
 set.seed(12345)

@@ -1,4 +1,4 @@
-### Homework 1: Time Series
+### Data Posturing
 
 # set the working directory
 setwd("C:/Users/alexr/OneDrive/Documents/NCSU/MSA Program/Fall 2021/AA502/Time Series/Homework1")
@@ -11,7 +11,7 @@ library(forecast)
 ozone <- read.csv("Ozone_Raleigh2.csv")
 
 
-## Problem 1
+## Part 1
 
 # determine the number of days missing
 
@@ -30,7 +30,7 @@ missingDays <- rangeDays[missing]
 length(missingDays)
 
 
-## Problem 2
+## Part 2
 
 # determine which year has the most missing days
 
@@ -44,7 +44,7 @@ counts <- Years %>%
   count(Year, sort = T)
 
 
-## Problem 3
+## Part 3
 
 # rolling up the monthly data, what is the mean max 8 hour Ozone
 # Concentration for January 2017? Keeping precision to 3 decimals.
@@ -62,7 +62,7 @@ ozoneConc <- ozone %>%
 mean(ozoneConc$Daily.Max.8.hour.Ozone.Concentration)
 
 
-## Problem 4
+## Part 4
 
 # create a time plot of the mean monthly max 8 hour ozone concentration
 

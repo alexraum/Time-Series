@@ -1,4 +1,4 @@
-### Homework 1: Time Series 2 (Alex Raum)
+### ARIMA models
 
 # import libraries
 library(zoo)
